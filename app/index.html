@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+  
+  <header>
+    <button type="button" class="btn btn-primary login" data-toggle="modal" data-target="#exampleModal">Login</button>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form method="POST" action="/login">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+   <div class="container">
+      <div class="row">
+         <h1 class="title">WELCOME. IT IS NICE TO SEE YOU HERE!</h1>
+   <p>The following survey will take approximately up to 5 minutes to complete. </p>
+   <form method="POST" id="from" action="create-paipulate" >
+      <div class="form-group">
+        <label for="">1. What is your native language?</label>
+        <input type="text"
+          class="form-control" name="language" id="" aria-describedby="helpId" placeholder="Please type" required>
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+          <div class="form-group">
+            <label for="">2. What is your gender?</label>
+            <select class="form-control" name="gender" id="" required>
+              <option disabled selected>Please select</option>
+              <option value="Male">Male</option>
+              <option value="Femaile">Female</option>
+              
+            </select>
+          </div>
+
+            <div class="form-group">
+              <label for="">3. Please move the pointer and find the point where the pedestrian sign resembles a male. </label>
+              <img class="range3_4-img img" src="Question 3&4/gm-1.01.svg" alt="">
+              <div class="slidecontainer">
+                 <input type="range" min="1" max="100" value="0" class="slider range3_4" name="gm1forfemale" style="width: 200px;" required>
+               </div>
+            </div>
+     
+            <div class="form-group">
+             <label for="">4. Please move the pointer and find the point where the pedestrian sign resembles a female. </label>
+             <img class="range3_4-img img" src="Question 3&4/gm-1.01.svg" alt="">
+             <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="0" class="slider range3_4" name="gm1formale" style="width: 200px;" required>
+              </div>
+           </div>
+
+           <div class="form-group">
+            <label for="">5. Please move the pointer and find the point where the pictorial sign resembles a male.  </label>
+            <img class="range5_6-img img" src="Question 5&6/gm-2.01.svg" alt="">
+            <div class="slidecontainer">
+               <input type="range" min="1" max="100" value="0" class="slider range5_6" name="gm2forfemale" style="width: 200px;" required>
+             </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="">6. Please move the pointer and find the point where the pictorial sign resembles a female.  </label>
+            <img class="range5_6-img img" src="Question 5&6/gm-2.01.svg" alt="">
+            <div class="slidecontainer">
+               <input type="range" min="1" max="100" value="0" class="slider range5_6" name="gm2formale" style="width: 200px;" required>
+             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">7. Please move the pointer and find the point where you cannot clearly assign the pictogram to a gender </label>
+            <img class="range7-img img" src="Question 7/gm-3.01.svg" alt="">
+            <div class="slidecontainer">
+               <input type="range" min="1" max="100" value="0" class="slider range7" name="gm3fordefineGender" style="width: 200px;" required>
+             </div>
+          </div>
+           <div class="form-group">
+             <label for="">Please leave your email below if you would like to hear about the results of the survey or updates on the research. </label>
+             <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="Your e-mail" required>
+           </div>
+           <button type="submit" class="btn btn-danger btn-lg">Submit</button>
+   </form>
+      </div>
+   </div>
+   <br>
+   <br>
+   <br>
+ </body>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script type="module" src="script.js"></script>
+</html>
