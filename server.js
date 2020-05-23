@@ -1,6 +1,7 @@
 const express=require('express')
 const parser=require('body-parser')
 const app=express();
+const port=process.env.PORT || 3000
 const path=require('path')
 const fs=require('fs')
 const database=require('./app/data/database.json');
@@ -63,6 +64,6 @@ app.post('/create-paipulate',(req,res)=>{
  res.redirect('/index.html')
 })
 
-app.listen(5500,()=>{
- console.log(__dirname)
+app.listen(port,()=>{
+ console.log(`app listening on ${port}`)
 })
