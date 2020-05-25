@@ -45,7 +45,7 @@ let questions5_6Interval=Math.round(100/questions5_6.length);
 let questions5_6Count=0;
 var x1=questions5_6Interval;
 
-let questions7Interval=Math.round(100/questions7.length);
+let questions7Interval=(100/questions7.length);
 let questions7Count=0;
 var x2=questions7Interval;
 
