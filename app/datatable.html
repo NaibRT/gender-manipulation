@@ -57,6 +57,20 @@
          </tfoot>
        </table>
        <script>
+           function deleteItem(param){ 
+                fetch('/delete-item',{
+                    method:'Post',
+                    data:param
+                })
+                .then(response=>{
+                    response.json()
+                    .then((value) => {console.log(value)})
+                    .catch((err) => {console.log(err)})
+                })
+                .catch((err) => {console.log(err)})
+
+            }
+
              fetch('/get-data')
     .then(respons=>{
         respons.json()
@@ -80,6 +94,10 @@
                     ${x.olympic}
                  </td>
                  <td>${x.dateTime}</td>
+                 <td>
+                    <button data-id=${x.ID} onclick='' class='btn btn-primary'>View</button>
+                    <button data-id=${x.ID} onclick=${deleteItem} class='btn btn-danger'>Delete</button>
+                    </td>
                  </tr>
                 ` 
                 document.querySelector('.tabel-body').innerHTML+=item

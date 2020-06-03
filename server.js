@@ -63,6 +63,12 @@ app.post('/create-paipulate',(req,res)=>{
  database.datas.push(data);
  fs.writeFileSync('./app/data/database.json',JSON.stringify(database));
  res.redirect('/')
+});
+
+app.post('/delete-item',(req,res)=>{
+  let data=req.body;
+  let newDatas=database.datas.filter(x=>x.ID!==data);
+  console.log(newDatas);
 })
 
 app.listen(port,()=>{
