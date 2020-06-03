@@ -57,6 +57,7 @@ app.get('/logout',(req,res)=>{
 
 app.post('/create-paipulate',(req,res)=>{
  let data=req.body;
+     data['ID']=Date.now()
      data['dateTime']=new Date().toGMTString();
      console.log(data)
  database.datas.push(data);

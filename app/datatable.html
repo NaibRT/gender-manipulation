@@ -23,12 +23,15 @@
         <table id="example" class="table table-striped table-bordered display dataTable no-footer" role="grid" style="width:100%">
          <thead>
             <tr>
+                <th>ID</th>
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Language</th>
                 <th>First Pictogram for Female</th>
+                <th>First Pictogram for Neutral</th>
                 <th>First Pictogram for Male</th>
                 <th>Secound Pictogram for Female</th>
+                <th>Secound Pictogram for Neutral</th>
                 <th>Secound Pictogram for Male</th>
                 <th>Last Pictogram</th>
                 <th>Date</th>
@@ -38,12 +41,15 @@
   
          <tfoot>
             <tr>
+                <th>ID</th>
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Language</th>
                 <th>First Pictogram for Female</th>
+                <th>First Pictogram for Neutral</th>
                 <th>First Pictogram for Male</th>
                 <th>Secound Pictogram for Female</th>
+                <th>Secound Pictogram for Neutral</th>
                 <th>Secound Pictogram for Male</th>
                 <th>Last Pictogram</th>
                 <th>Date</th>
@@ -60,14 +66,19 @@
                 data.forEach(x=>{
                  var item=`
                  <tr role='row' class='odd'>
+                 <td>${x.ID}</td>
                  <td>${x.email}</td>
                  <td>${x.gender}</td>
                  <td>${x.language}</td>
                  <td>${x.gm1forfemale}</td>
+                 <td>${x.gm1forNeutral}</td>
                  <td>${x.gm1formale}</td>
                  <td>${x.gm2forfemale}</td>
+                 <td>${x.gm2forNeutral}</td>
                  <td>${x.gm2formale}</td>
-                 <td>${x.gm3fordefineGender}</td>
+                 <td>
+                    ${x.olympic}
+                 </td>
                  <td>${x.dateTime}</td>
                  </tr>
                 ` 
