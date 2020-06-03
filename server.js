@@ -62,7 +62,7 @@ app.post('/create-paipulate',(req,res)=>{
      console.log(data)
  database.datas.push(data);
  fs.writeFileSync('./app/data/database.json',JSON.stringify(database));
- res.redirect('/index.html')
+ res.redirect('/')
 })
 
 app.listen(port,()=>{
