@@ -68,7 +68,7 @@ app.post('/create-paipulate',(req,res)=>{
 app.post('/delete-item',(req,res)=>{
   let data=req.body;
   let newDatas=database.datas.filter(x=>x.ID!==data);
-  console.log(newDatas);
+  res.json(data);
 })
 
 app.listen(port,()=>{
