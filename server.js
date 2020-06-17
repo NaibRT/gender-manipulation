@@ -65,6 +65,14 @@ app.post('/create-paipulate',(req,res)=>{
  res.redirect('/')
 });
 
+app.post('/delet-paipulate',(req,res)=>{
+  let id=req.body.id;
+      let newdatas=database.datas.filter(x=>x.ID!=id);
+       database.datas=newdatas;
+      fs.writeFileSync('./app/data/database.json',JSON.stringify(database));
+      res.json({status:200})
+ });
+
 app.post('/delete-item',(req,res)=>{
   let data=req.body;
   let newDatas=database.datas.filter(x=>x.ID!==data);

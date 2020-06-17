@@ -6,9 +6,9 @@
  <title>Document</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <link rel="stylesheet" href="style.css">
- 
+ <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
-<body>
+<body id="gender-body">
   
   <header>
     <button type="button" class="btn btn-primary login" data-toggle="modal" data-target="#exampleModal">Login</button>
@@ -57,6 +57,7 @@
               <img class="range3_4-img img" src="Question3&4/gm-1.01.svg" alt="">
               <div class="slidecontainer">
                  <input type="range" min="1" max="100" value="0" class="slider range3_4" name="gm1forfemale" style="width: 200px;" required>
+                 <input name='gm1forfemaleimg' type="hidden" />
                </div>
             </div>
      
@@ -65,6 +66,7 @@
              <img class="range3_4-img img" src="Question3&4/gm-1.01.svg" alt="">
              <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="0" class="slider range3_4" name="gm1forNeutral" style="width: 200px;" required>
+                <input name='gm1forNeutralimg' type="hidden" />
               </div>
            </div>
            <div class="form-group">
@@ -72,7 +74,9 @@
             <img class="range3_4-img img" src="Question3&4/gm-1.01.svg" alt="">
             <div class="slidecontainer">
                <input type="range" min="1" max="100" value="0" class="slider range3_4" name="gm1formale" style="width: 200px;" required>
-             </div>
+               <input name='gm1formaleimg' type="hidden" />
+               
+              </div>
           </div>
 
            <div class="form-group">
@@ -80,7 +84,9 @@
             <img class="range5_6-img img" src="Question5&6/gm-2.01.svg" alt="">
             <div class="slidecontainer">
                <input type="range" min="1" max="100" value="0" class="slider range5_6" name="gm2forfemale" style="width: 200px;" required>
-             </div>
+               <input name='gm2forfemaleimg' type="hidden" />
+               
+              </div>
           </div>
           
           <div class="form-group">
@@ -88,14 +94,17 @@
             <img class="range5_6-img img" src="Question5&6/gm-2.01.svg" alt="">
             <div class="slidecontainer">
                <input type="range" min="1" max="100" value="0" class="slider range5_6" name="gm2forNeutral" style="width: 200px;" required>
-             </div>
+               <input name='gm2forNeutralimg' type="hidden" />
+              </div>
           </div>
           <div class="form-group">
             <label for="">8. Please move the pointer stepwise and find the point where the pedestrian sign starts resembling a female. </label>
             <img class="range5_6-img img" src="Question5&6/gm-2.01.svg" alt="">
             <div class="slidecontainer">
                <input type="range" min="1" max="100" value="0" class="slider range5_6" name="gm2formale" style="width: 200px;" required>
-             </div>
+               <input name='gm2formaleimg' type="hidden" />
+                
+              </div>
           </div>
 
           <div class="form-group">
@@ -111,6 +120,10 @@
              <label for="">Please leave your email below if you would like to hear about the results of the survey or updates on the research. </label>
              <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="Your e-mail" required>
            </div>
+           <div class="form-group">
+            <label for="">Any comments or suggestions. </label>
+            <input type="text" class="form-control" name="comment" id="" aria-describedby="textHelpId" >
+          </div>
            <button type="submit" class="btn btn-danger btn-lg">Submit</button>
    </form>
       </div>
@@ -123,4 +136,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  <script type="module" src="script.js"></script>
+ <script>
+   function screenShot(){
+  html2canvas(document.querySelector("#gender-body")).then(canvas => {
+    document.body.appendChild(canvas)
+  });
+}
+ </script>
 </html>

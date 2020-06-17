@@ -14,6 +14,15 @@
     <header>
         <a href="/logout" type="button" class="btn btn-primary logout">Log out</a>
     </header>
+    <div class="modal fade" id="view-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h1>SALAM</h1>
+            </div>
+          </div>
+        </div>
+      </div>
   <div class="container">
     <div class="col-xs-1-12">
        <div class="row">
@@ -79,7 +88,6 @@
     .then(respons=>{
         respons.json()
         .then(data=>{
-            console.log(data)
             let tr=document.createElement('tr');
                 data.forEach(x=>{
                  var item=`
@@ -88,19 +96,40 @@
                  <td>${x.email}</td>
                  <td>${x.gender}</td>
                  <td>${x.language}</td>
-                 <td>${x.gm1forfemale}</td>
-                 <td>${x.gm1forNeutral}</td>
-                 <td>${x.gm1formale}</td>
-                 <td>${x.gm2forfemale}</td>
-                 <td>${x.gm2forNeutral}</td>
-                 <td>${x.gm2formale}</td>
                  <td>
-                    ${x.olympic}
+                    <p>${x.gm1forfemale}</p>
+                    <img src="${x.gm1forfemaleimg}"/>
+                    </td>
+                 <td>
+                    <p>${x.gm1forNeutral}</p>
+                    <img src="${x.gm1forNeutralimg}"/>
+                    </td>
+                 <td>
+                    <p>${x.gm1formale}</p>
+                    <img src="${x.gm1formaleimg}"/>
+                    </td>
+                 <td>
+                    <p>${x.gm2forfemale}</p>
+                    <img src="${x.gm2forfemaleimg}"/>
+                    </td>
+                 <td>
+                    <p>${x.gm2forNeutral}</p>
+                    <img src="${x.gm2forNeutralimg}"/>
+                    </td>
+                 <td>
+                    <p>${x.gm2formale}</p>
+                    <img src="${x.gm2formaleimg}"/>
+                    </td>
+                 <td>
+                    ${
+                        x.olympic.map(y=>{
+                            return `<img src="${y}"/>`
+                        })
+                    }
                  </td>
                  <td>${x.dateTime}</td>
                  <td>
-                    <button data-id=${x.ID} onclick='' class='btn btn-primary'>View</button>
-                    <button data-id=${x.ID} onclick='deleteItem(e)' class='btn btn-danger'>Delete</button>
+                    <button data-id=${x.ID} onclick='deleteItem(this)' class='btn btn-danger'>Delete</button>
                     </td>
                  </tr>
                 ` 
@@ -119,12 +148,32 @@
     </div>
   </div>
 </body>
+
 <script  src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script  src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+        "scrollY": 700,
+        "scrollX": true,
+    });
 });
+function deleteItem(e){
+    let id=e.getAttribute('data-id');
+    fetch('/delet-paipulate',{
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        method:'Post',
+        body:JSON.stringify({id:id})
+    })
+    .then(response=>{
+        e.parentElement.parentElement.remove()
+    })
+    .catch((err) => {console.log(err)})
+}
 </script>
 </html>
