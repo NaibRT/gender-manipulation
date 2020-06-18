@@ -54,7 +54,7 @@ range3_4.forEach(range=>{
   range.addEventListener('input',function(){
     if(this.value<=x){
       range.parentElement.previousElementSibling.setAttribute('src',questions3_4[questions3_4Count])
-      range.nextElementSibling.setAttribute('value',questions5_6[questions5_6Count])
+      range.nextElementSibling.setAttribute('value',questions3_4[questions3_4Count])
      }
      if(this.value>=x){
       x+=questions3_4Interval;
