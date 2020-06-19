@@ -124,9 +124,12 @@
                     </td>
                  <td>
                     ${
+                        
+                        x.olympic.length>1?
                         x.olympic.map(y=>{
                             return `<img src="${y}"/>`
-                        })
+                        }):
+                        `<img src="${x.olympic}"/>`
                     }
                  </td>
                  <td>${x.dateTime}</td>
