@@ -90,8 +90,18 @@
     .then(respons=>{
         respons.json()
         .then(data=>{
+            let olympic=[];
             let tr=document.createElement('tr');
                 data.forEach(x=>{
+                    debugger
+                    if(Array.isArray(x.olympic)){
+                       olympic= x.olympic.map(y=>{
+                            return `<img src="${y}"/>`
+                        })}
+                        else{
+                            olympic=`<img src="${x.olympic}"/>`
+                        }
+                        
                  var item=`
                  <tr role='row' class='odd'>
                  <td>${x.ID}</td>
@@ -123,14 +133,7 @@
                     <img src="${x.gm2formaleimg}"/>
                     </td>
                  <td>
-                    ${
-                        
-                        x.olympic.length>1?
-                        x.olympic.map(y=>{
-                            return `<img src="${y}"/>`
-                        }):
-                        `<img src="${x.olympic}"/>`
-                    }
+                    ${olympic}
                  </td>
                  <td>${x.dateTime}</td>
                  <td>${x.comment}</td>
